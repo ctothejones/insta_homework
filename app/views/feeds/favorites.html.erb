@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h3>Favorites</h3>
+</div>
+<table class="table table-hover">
+  <tbody>
+    <% current_user.favorites.each do |favorite| %>
+      <tr>
+        <td><a href="/photos/<%= favorite.photo_id %>"><img src="<%= Photo.find(favorite.photo_id).image_url %>"></a></td>
+        <td><%= Photo.find(favorite.photo_id).caption %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'photos#index'
 
+  get('/wall', { :controller => 'feeds', :action => 'index' })
+  get('/favorites', { :controller => 'feeds', :action => 'favorites' })
+
   # Routes for the Favorite resource:
   # CREATE
   get('/favorites/new', { :controller => 'favorites', :action => 'new' })
